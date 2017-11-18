@@ -10,9 +10,13 @@ class NegociacaoController {
     adiciona(event) {
         event.preventDefault();
 
-        console.log(this._inputData.value);
-        console.log(parseInt(this._inputQuantidade.value));
-        console.log(parseFloat(this._inputValor.value));
+        let negociacao = new Negociacao(
+            DateConverter.paraData(this._inputData.value),
+            parseInt(this._inputQuantidade.value),
+            parseFloat(this._inputValor.value)
+        );
+
+        let diaMesAno = DateConverter.paraTexto(negociacao.data);
+        console.log(diaMesAno);
     }
-    // parei em 99
 }
